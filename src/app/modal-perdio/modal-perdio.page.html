@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fin del juego</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding text-center>
+	<ion-card>
+		<ion-card-content>
+			<p *ngIf="premio == 0">
+				¡Mala suerte! has perdido, pero puedes intentarlo nuevamente, ¡no te rindas!.
+			</p>
+			<p *ngIf="premio != 0">
+				¡Mala suerte! has perdido, pero te has llevado la suma de {{premio}}
+			</p>
+			<ion-button href="\">
+				Volver a jugar
+			</ion-button>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

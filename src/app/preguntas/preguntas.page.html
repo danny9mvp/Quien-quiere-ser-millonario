@@ -1,0 +1,551 @@
+<ion-content padding class="fondo">
+	<ion-grid>
+		<ion-row text-center>
+			<ion-col col-12 col-md-6 col-lg-4 col-xl-3>
+				<ion-button *ngIf="!ayudaCincuentaCincuentaFueUsada" fill = "clear" (click)="ayudaCincuentaCincuenta()">
+					50:50
+				</ion-button>
+				<ion-button *ngIf="!ayudaLlamadaAmigoFueUsada" fill = "clear" (click)="ayudaLlamadaAmigo()">
+					<ion-icon name="call"></ion-icon>					
+				</ion-button>
+				<ion-button *ngIf="!ayudaPublicoFueUsada" fill = "clear" (click)="ayudaPublico()">
+					<ion-icon name="people"></ion-icon>
+				</ion-button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-12 col-md-6 col-lg-4 col-xl-3>
+						<!-------------------------------------------Inicio preguntas chimbas--------------------------------------------------->
+						<ion-card text-center *ngIf="contadorGrupos == 1 && contadorPreguntas == 1">
+							<ion-card-header>
+								<h1>{{preguntasChimbasElegidas[0].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasChimbasElegidas[0].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span>{{preguntasChimbasElegidas[0].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasChimbasElegidas[0].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasChimbasElegidas[0].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasChimbasElegidas[0].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 1 && contadorPreguntas == 2">
+							<ion-card-header>
+								<h1>{{preguntasChimbasElegidas[1].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasChimbasElegidas[1].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasChimbasElegidas[1].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasChimbasElegidas[1].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasChimbasElegidas[1].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasChimbasElegidas[1].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 1 && contadorPreguntas == 3">
+							<ion-card-header>
+								<h1>{{preguntasChimbasElegidas[2].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasChimbasElegidas[2].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasChimbasElegidas[2].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasChimbasElegidas[2].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasChimbasElegidas[2].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasChimbasElegidas[2].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 1 && contadorPreguntas == 4">
+							<ion-card-header>
+								<h1>{{preguntasChimbasElegidas[3].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasChimbasElegidas[3].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasChimbasElegidas[3].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasChimbasElegidas[3].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasChimbasElegidas[3].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasChimbasElegidas[3].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 1 && contadorPreguntas == 5">
+							<ion-card-header>
+								<h1>{{preguntasChimbasElegidas[4].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasChimbasElegidas[4].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasChimbasElegidas[4].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasChimbasElegidas[4].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasChimbasElegidas[4].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasChimbasElegidas[4].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<!-------------------------------------------Fin preguntas chimbas------------------------------------------------------>
+						<!-------------------------------------------Inicio preguntas normales-------------------------------------------------->
+						<ion-card text-center *ngIf="contadorGrupos == 2 && contadorPreguntas == 1">
+							<ion-card-header>
+								<h1>{{preguntasNormalesElegidas[0].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasNormalesElegidas[0].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasNormalesElegidas[0].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasNormalesElegidas[0].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasNormalesElegidas[0].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasNormalesElegidas[0].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 2 && contadorPreguntas == 2">
+							<ion-card-header>
+								<h1>{{preguntasNormalesElegidas[1].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasNormalesElegidas[1].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasNormalesElegidas[1].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasNormalesElegidas[1].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasNormalesElegidas[1].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasNormalesElegidas[1].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 2 && contadorPreguntas == 3">
+							<ion-card-header>
+								<h1>{{preguntasNormalesElegidas[2].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasNormalesElegidas[2].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasNormalesElegidas[2].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasNormalesElegidas[2].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasNormalesElegidas[2].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasNormalesElegidas[2].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 2 && contadorPreguntas == 4">
+							<ion-card-header>
+								<h1>{{preguntasNormalesElegidas[3].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasNormalesElegidas[3].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasNormalesElegidas[3].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasNormalesElegidas[3].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasNormalesElegidas[3].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasNormalesElegidas[3].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 2 && contadorPreguntas == 5">
+							<ion-card-header>
+								<h1>{{preguntasNormalesElegidas[4].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasNormalesElegidas[4].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasNormalesElegidas[4].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasNormalesElegidas[4].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasNormalesElegidas[4].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasNormalesElegidas[4].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<!-------------------------------------------Fin preguntas normales----------------------------------------------------->
+						<!-------------------------------------------Inicio preguntas imposibles------------------------------------------------>
+						<ion-card text-center *ngIf="contadorGrupos == 3 && contadorPreguntas == 1">
+							<ion-card-header>
+								<h1>{{preguntasImposiblesElegidas[0].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasImposiblesElegidas[0].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasImposiblesElegidas[0].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasImposiblesElegidas[0].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasImposiblesElegidas[0].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasImposiblesElegidas[0].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 3 && contadorPreguntas == 2">
+							<ion-card-header>
+								<h1>{{preguntasImposiblesElegidas[1].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasImposiblesElegidas[1].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasImposiblesElegidas[1].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasImposiblesElegidas[1].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasImposiblesElegidas[1].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasImposiblesElegidas[1].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 3 && contadorPreguntas == 3">
+							<ion-card-header>
+								<h1>{{preguntasImposiblesElegidas[2].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasImposiblesElegidas[2].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasImposiblesElegidas[2].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasImposiblesElegidas[2].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasImposiblesElegidas[2].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge> 
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasImposiblesElegidas[2].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 3 && contadorPreguntas == 4">
+							<ion-card-header>
+								<h1>{{preguntasImposiblesElegidas[3].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasImposiblesElegidas[3].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasImposiblesElegidas[3].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasImposiblesElegidas[3].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasImposiblesElegidas[3].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasImposiblesElegidas[3].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<ion-card text-center *ngIf="contadorGrupos == 3 && contadorPreguntas == 5">
+							<ion-card-header>
+								<h1>{{preguntasImposiblesElegidas[4].nivel}}</h1>
+							</ion-card-header>
+							<ion-card-content>
+								{{preguntasImposiblesElegidas[4].enunciado}}
+								<ion-grid>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(1)" *ngIf="esconderOpcionA == false" expand="block" fill="clear">
+												<span>A. </span> {{preguntasImposiblesElegidas[4].opciones[0].texto}} <ion-badge color="tertiary" *ngIf="opcionAporcentaje != 0">{{opcionAporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(2)" *ngIf="esconderOpcionB == false" expand="block" fill="clear">
+												<span>B. </span> {{preguntasImposiblesElegidas[4].opciones[1].texto}} <ion-badge color="tertiary" *ngIf="opcionBporcentaje != 0">{{opcionBporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+									<ion-row>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(3)" *ngIf="esconderOpcionC == false" expand="block" fill="clear">
+												<span>C. </span> {{preguntasImposiblesElegidas[4].opciones[2].texto}} <ion-badge color="tertiary" *ngIf="opcionCporcentaje != 0">{{opcionCporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+										<ion-col col-6>
+											<ion-button (click)="clickeado(4)" *ngIf="esconderOpcionD == false" expand="block" fill="clear">
+												<span>D. </span> {{preguntasImposiblesElegidas[4].opciones[3].texto}} <ion-badge color="tertiary" *ngIf="opcionDporcentaje != 0">{{opcionDporcentaje}}%</ion-badge>
+											</ion-button>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-card-content>
+						</ion-card>
+						<!-------------------------------------------Fin preguntas imposibles--------------------------------------------------->
+
+			</ion-col>
+		</ion-row>		
+		<ion-row *ngIf="ganador == false">
+			<ion-col col-4>				
+			</ion-col>
+			<ion-col col-4>
+				<ion-card text-center>
+					<ion-card-header>
+						<h2>${{premioActual}}</h2>
+					</ion-card-header>
+				</ion-card>
+			</ion-col>
+			<ion-col col-4>				
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

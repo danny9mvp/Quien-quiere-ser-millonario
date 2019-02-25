@@ -1,0 +1,20 @@
+ion-content{
+	--background: url("../../assets/img/backgroundWWTBM.jpeg") center center/cover;	
+}
+ion-card{
+	--background: black;
+	border: 3px solid !important;	
+	border-image: linear-gradient(to left, gray, white);
+}
+ion-card, h1, h2, ion-button{
+	color:white;
+	border-radius: 30%;
+}
+ion-button{
+	border: 3px solid white !important;
+	border-image: linear-gradient(to left, gray, white);
+}
+span{
+	color:orange;
+	font-weigth: bold;
+}

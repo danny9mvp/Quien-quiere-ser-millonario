@@ -9,9 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { ModalPerdioPage } from './modal-perdio/modal-perdio.page';
+import { ModalGanadorPage } from './modal-ganador/modal-ganador.page';
+
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ModalPerdioPage, ModalGanadorPage],
+  entryComponents: [ModalPerdioPage, ModalGanadorPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
